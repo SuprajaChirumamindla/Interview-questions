@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    int a = 0x12345678;
+   // a=a>>32;
+    
+    int temp = 0xff000000;
+    int x = 0x00000000;
+    int count=1,y,temp1;
+    while(count<=3){
+        
+        //a=0x12345678;
+        y=a&temp;
+        //printf("\n1_%x\n",y);
+        a=a<<8;
+        y=y>>(32-(count*8));
+        //printf("\n2_%x\n",y);
+        x|=y;
+        //printf("\n3_%x\n",x);
+        count++;
+    }
+    printf("\n%x\n",x|a);
+    return 0;
+}
